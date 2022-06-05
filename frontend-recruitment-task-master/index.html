@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The sunset - Recruitment task</title>
         <link rel="stylesheet" href="src/scss/main.css">
-    </head>
+        <link rel="import" href="./src/js/main.js">
     <body>
         <section class="main-header">
             <div class="img-header">
@@ -15,13 +15,25 @@
             <div class="text-header">
               <h1>Lorem Ipsum</h1>
               <p>Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
-              <button onclick="press()">Button</button>
-              <script class="alert">
-                  function press() {
-                  alert('You have clicked X times to related button.')
-                  }
-              </script>
+              <a href="#" id="button" class="button">Button</a>
             </div>
         </section>
+        <div class="alert-modal">
+          <div class="alert-modal-content">
+            <h2>Alert!</h2>
+            <p>You have clicked X times to related button.</p>
+            <div class="alert-modal-close">+</div>
+          </div>
+        </div>
+        <script>
+          document.getElementById('button').addEventListener('click',
+          function(){
+          document.querySelector('.alert-modal').style.display = 'flex'
+          });
+
+          document.querySelector('.alert-modal-close').addEventListener("click", function() {
+          document.querySelector('.alert-modal'). style.display = "none"
+          });
+          </script>
     </body>
 </html>
