@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The sunset - Recruitment task</title>
-        <link rel="stylesheet" href="src/scss/main.css">
+        <link rel="stylesheet" href="src/css/main.css">
         <link rel="import" href="./src/js/main.js">
     <body>
         <section class="main-header">
@@ -15,10 +15,11 @@
             <div class="text-header">
               <h1>Lorem Ipsum</h1>
               <p>Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
-              <a href="#" id="button" class="button">Button</a>
+              <button class="button" id="button" onClick="onClick()">Button</button>
+             <b> Clicks: <a id="clicks">0</a></b>
             </div>
         </section>
-        <div class="alert-modal">
+        <div id="myAlertModal" class="alert-modal">
           <div class="alert-modal-content">
             <h2>Alert!</h2>
             <p>You have clicked X times to related button.</p>
@@ -26,14 +27,23 @@
           </div>
         </div>
         <script>
-          document.getElementById('button').addEventListener('click',
-          function(){
-          document.querySelector('.alert-modal').style.display = 'flex'
-          });
-
-          document.querySelector('.alert-modal-close').addEventListener("click", function() {
-          document.querySelector('.alert-modal'). style.display = "none"
-          });
-          </script>
+            var modal = document.getElementById('myAlertModal');
+            var button = document.getElementById('button')
+            var div = document.getElementsByClassName('alert-modal-close')[0];
+            var clicks = 0;
+            button.onclick = function() {
+              clicks += 1;
+              document.getElementById("clicks").innerHTML = clicks;
+              modal.style.display = 'block';
+            }
+              div.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none"
+                }
+              }
+        </script>
     </body>
 </html>
