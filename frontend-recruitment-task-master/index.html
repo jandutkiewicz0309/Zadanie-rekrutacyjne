@@ -9,13 +9,13 @@
     <body>
         <section class="main-header">
             <div class="img-header">
-              <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_784.jpg" alt="art">
+              <img class="img" src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg" alt="art">
             </div>
             <div class="text-header">
               <h1>Lorem Ipsum</h1>
               <p>Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
               <button class="button" id="button" onClick="onClick()">Button</button>
-             <b> Clicks: <a id="a">0</a></b>
+             <b> Clicks: <a id="clicked">0</a></b>
             </div>
         </section>
         <div id="myAlertModal" class="alert-modal">
@@ -23,36 +23,9 @@
             <h2>Alert!</h2>
             <p>You have clicked times to related button.</p>
             <button id="reset">Button Reset</button>
-            <div class="alert-modal-close">+</div>
+            <div id="closeAlert" class="alert-modal-close">+</div>
           </div>
         </div>
-        <script>
-            var modal = document.getElementById('myAlertModal');
-            var button = document.getElementById('button')
-            var div = document.getElementsByClassName('alert-modal-close')[0];
-            var a = 0;
-            button.onclick = function() {
-              a += 1;
-              document.getElementById("a").innerHTML = a;
-              modal.style.display = 'block';
-            }
-
-            var reset = function() {
-              var a = 0;
-              document.getElementById('a').innerHTML = 0;
-            }
-            var resetButton = document.querySelector("#reset");
-            resetButton.addEventListener("click", function() {
-	          reset();
-            })
-              div.onclick = function() {
-                modal.style.display = "none";
-              }
-              window.onclick = function(event) {
-                if (event.target == modal) {
-                  modal.style.display = "none"
-                }
-              }
-        </script>
+        <script src="src/js/main.js"></script>
     </body>
 </html>

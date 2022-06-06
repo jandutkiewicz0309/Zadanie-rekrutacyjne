@@ -1,26 +1,26 @@
+var modal = document.getElementById('myAlertModal');
+var button = document.getElementById('button')
+var div = document.getElementById('closeAlert')[0];
+var aclicked = 0;
+button.onclick = function() {
+  clicked += 1;
+  document.getElementById("clicked").innerHTML = clicked;
+  modal.style.visibility = 'visible'
+}
 
-
-
-
-
-// document.getElementById('button').addEventListener('click',
-
-
-
-
-
-// function(){
-// document.querySelector('.alert-modal').style.display = 'flex'
-// });
-
-// document.querySelector('.close').addEventListener("click", function() {
-// 	document.querySelector('.alert-modal-close'). style.display = "none"
-// });
-
-{/* <script type="text/javascript">
-var clicks = 0;
-function onClick() {
-clicks += 1;
-document.getElementById("clicks").innerHTML = clicks;
-};
-</script> */}
+var reset = function() {
+  var clicked = 0;
+  document.getElementById('clicked').innerHTML = 0;
+}
+var resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", function() {
+  reset();
+})
+  div.onclick = function() {
+	modal.style.visibility = 'visible';
+  }
+  window.onclick = function(event) {
+	if (event.target == modal) {
+	  modal.style.visibility = 'visible'
+	}
+  }
