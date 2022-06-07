@@ -1,11 +1,11 @@
 var modal = document.getElementById('myAlertModal');
 var button = document.getElementById('button')
-var div = document.getElementById('closeAlert')[0];
-var aclicked = 0;
+var div = document.getElementById('closeAlert');
+var clicked = 0;
 button.onclick = function() {
   clicked += 1;
   document.getElementById("clicked").innerHTML = clicked;
-  modal.style.visibility = 'visible'
+  modal.style.display = 'flex'
 }
 
 var reset = function() {
@@ -17,10 +17,10 @@ resetButton.addEventListener("click", function() {
   reset();
 })
   div.onclick = function() {
-	modal.style.visibility = 'visible';
+	modal.style.display = "none";
   }
   window.onclick = function(event) {
 	if (event.target == modal) {
-	  modal.style.visibility = 'visible'
+	  modal.style.display = 'none'
 	}
   }
