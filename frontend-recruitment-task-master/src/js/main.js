@@ -1,26 +1,37 @@
-var modal = document.getElementById('myAlertModal');
-var button = document.getElementById('button')
-var div = document.getElementById('closeAlert');
-var clicked = 0;
+let modal = document.getElementById('myAlertModal');
+let button = document.getElementById('button')
+let div = document.getElementById('closeAlert');
+let btn = document.getElementById('reset')
+const clickedTimes = document.getElementById('clickedTimes')
+let clicked = 0;
+
 button.onclick = function() {
   clicked += 1;
   document.getElementById("clicked").innerHTML = clicked;
   modal.style.display = 'flex'
+  if(clicked >= 5) {
+    btn.style.display ='block'
+  }
 }
 
-var reset = function() {
-  var clicked = 0;
-  document.getElementById('clicked').innerHTML = 0;
+let reset = function() {
+  clicked = 0;
+  document.getElementById('clicked').innerHTML = clicked;
 }
-var resetButton = document.querySelector("#reset");
+
+let resetButton = document.querySelector("#reset");
+btn.style.display = 'none';
 resetButton.addEventListener("click", function() {
   reset();
-})
-  div.onclick = function() {
-	modal.style.display = "none";
+  btn.style.display = 'none'
+})  
+
+div.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none'
   }
-  window.onclick = function(event) {
-	if (event.target == modal) {
-	  modal.style.display = 'none'
-	}
-  }
+}
