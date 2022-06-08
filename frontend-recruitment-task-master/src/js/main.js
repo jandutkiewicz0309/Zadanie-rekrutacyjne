@@ -7,32 +7,36 @@ const span = document.getElementById('clicked')
 let clicked = 0;
 
 button.onclick = function() {
-  clicked += 1;
-  document.getElementById("clicked").innerHTML = clicked;
-  modal.style.display = 'flex'
-  if(clicked >= 5) {
-    btn.style.display ='block'
+  if (localStorage.clicks){
+    localStorage.clicks = Number(localStorage.clicks) +1;
+  }else {
+    localStorage.clicks = 1;
+  }
+  document.getElementById("clicked").innerHTML = localStorage.clicks;
+  modal.style.display = "flex"
+  if(localStorage.clicks >=5) {
+    btn.style.display = 'block'
   }
 }
 
 let reset = function() {
-  clicked = 0;
-  document.getElementById('clicked').innerHTML = clicked;
+  localStorage.clear();
+  document.getElementById('clicked').innerHTML = 0;
 }
 
 let resetButton = document.querySelector("#reset");
-  btn.style.display = 'none';
-  resetButton.addEventListener("click", function() {
-  reset();
   btn.style.display = 'none'
-})  
+  resetButton.addEventListener("click", function(){
+    reset();
+    btn.style.display = 'none'
+  })
 
-div.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = 'none'
+  div.onclick = function() {
+    modal.style.display = "none";
   }
-}
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none'
+    }
+  }
