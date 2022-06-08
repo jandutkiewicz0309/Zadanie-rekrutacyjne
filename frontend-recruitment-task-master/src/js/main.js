@@ -1,8 +1,9 @@
-let modal = document.getElementById('myAlertModal');
-let button = document.getElementById('button')
-let div = document.getElementById('closeAlert');
-let btn = document.getElementById('reset')
-const clickedTimes = document.getElementById('clickedTimes')
+const modal = document.getElementById('myAlertModal');
+const button = document.getElementById('button');
+const div = document.getElementById('closeAlert');
+const btn = document.getElementById('reset');
+const span = document.getElementById('clicked')
+
 let clicked = 0;
 
 button.onclick = function() {
@@ -20,8 +21,8 @@ let reset = function() {
 }
 
 let resetButton = document.querySelector("#reset");
-btn.style.display = 'none';
-resetButton.addEventListener("click", function() {
+  btn.style.display = 'none';
+  resetButton.addEventListener("click", function() {
   reset();
   btn.style.display = 'none'
 })  
